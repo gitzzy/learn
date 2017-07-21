@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>控制div属性</title>
+    <style>
+        .control {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .control button {
+            background-color: transparent;
+            border: 1px solid #f69538;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        #main {
+            margin: auto;
+            width: 100px;
+            height: 100px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+<div class="control">
+    <button id="changeWidth" onclick="change('width')">变宽</button>
+    <button id="changeHeight" onclick="change('height')">变高</button>
+    <button id="changeColor" onclick="change('color')">变色</button>
+    <button id="hidden" onclick="change('hide')">隐藏</button>
+    <button id="show" onclick="change('show')">显示</button>
+</div>
+<div id="main"></div>
+</body>
+<script>
+    function change(param) {
+        var main = document.getElementById('main');
+        if (param === 'width') {
+            main.style.width = '200px';
+        } else if (param === 'height') {
+            main.style.height = '200px';
+        } else if (param === 'color') {
+            main.style.backgroundColor = '#f69538';
+        } else if (param === 'hide') {
+            main.style.display = 'none';
+        } else if (param === 'show') {
+            main.style.display = 'block';
+        }
+    }
+</script>
+</html>

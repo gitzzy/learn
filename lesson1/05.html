@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>onmouseover/onmouseout效果</title>
+</head>
+<style>
+    #wrapper{
+        margin: 20px auto;
+        width: 160px;
+        height: 160px;
+        background-color: #000;
+        border: 20px solid #000;
+    }
+    .over{
+        background-color: #ccc!important;
+        cursor: crosshair;
+    }
+</style>
+<body>
+    <div id="wrapper" onmouseover="over(this)" onmouseout="out(this)">
+
+    </div>
+</body>
+<script>
+    var wrap = document.getElementById('wrapper');
+    function over(t) {
+        t.className = 'over';
+    }
+
+    function out(t) {
+        t.setAttribute('class', '');
+    }
+</script>
+</html>

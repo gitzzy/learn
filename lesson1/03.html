@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>传参并弹出</title>
+</head>
+<style>
+    .wrapper{
+        text-align: center;
+    }
+</style>
+<body>
+    <div class="wrapper">
+        <p><input type="text" value="北京市"></p>
+        <p><input type="text" value="朝阳区"></p>
+        <p><input type="button" id="submit" value="提交"></p>
+    </div>
+</body>
+<script>
+    var submit = document.getElementById('submit');
+    submit.onclick = function() {
+        var inputs = document.getElementsByTagName('input');
+        alert(inputs[0].value + '-' + inputs[1].value);
+    }
+</script>
+</html>

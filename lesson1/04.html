@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用循环将三个div变成红色</title>
+    <style>
+        .wrapper{
+            text-align: center;
+        }
+        .content {
+            margin: 20px auto;
+            width: 360px;
+            overflow: hidden;
+        }
+        .content p {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <input type="button" id="change" value="看我将它们都变成红色！">
+        <div class="content">
+            <p></p>
+            <p></p>
+            <p></p>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('change').onclick = function () {
+        var op = document.getElementsByClassName('content')[0].children;
+        for (var i = 0; i < op.length; i++) {
+            op[i].style.backgroundColor = '#ff0000';
+        }
+    };
+</script>
+</html>

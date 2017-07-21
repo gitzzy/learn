@@ -1,0 +1,46 @@
+{
+  "lessons": [
+    {
+      "title": "第一课",
+      "list": [
+        {
+          "name": "控制div属性",
+          "href": "lesson1/01.html"
+        },
+        {
+          "name": "网页换肤",
+          "href": "lesson1/02.html"
+        },
+        {
+          "name": "函数接收参数并弹出",
+          "href": "lesson1/03.html"
+        },
+        {
+          "name": "用循环将三个div变成红色",
+          "href": "lesson1/04.html"
+        },
+        {
+          "name": "onmouseover/onmouseout效果",
+          "href": "lesson1/05.html"
+        },
+        {
+          "name": "记住密码提示框",
+          "href": "lesson1/06.html"
+        }
+      ]
+    },
+    {
+      "title": "第二课",
+      "list": [
+        {
+          "name": "输入法",
+          "href": "#"
+        },
+        {
+          "name": "点击div，显示innerHTML",
+          "href": "#"
+        }
+      ]
+    }
+  ]
+}

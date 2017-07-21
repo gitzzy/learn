@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>记住密码提示框</title>
+    <style>
+        .form{
+            margin: 20px auto;
+            text-align: center;
+            font-size: 12px;
+            width: 300px;
+            position: relative;
+        }
+        .tips{
+            padding: 5px;
+            position: absolute;
+            top: 10px;
+            left: 80px;
+            width: 160px;
+            text-align: left;
+            font-weight: 100;
+            border: 1px solid #f33d1c;
+            background-color: #f9a090;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form">
+            <label onmouseover="show()" onmouseout="hide()"><input type="checkbox"> 一周内自动登录</label>
+            <p class="tips">为了您的信息安全，请不要在网吧或者公共电脑上登陆！</p>
+        </div>
+    </div>
+</body>
+<script>
+    var tips = document.getElementsByClassName('tips')[0];
+    function show() {
+        tips.style.display = 'block';
+    }
+    function hide() {
+        tips.style.display = 'none';
+    }
+</script>
+</html>
