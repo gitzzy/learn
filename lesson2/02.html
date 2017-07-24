@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点击div，显示innerHTML</title>
+    <style>
+        p {
+            margin: 20px auto;
+            padding: 10px;
+            width: 600px;
+            font-size: 12px;
+            border: 2px solid #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <p><b>新华网</b>北京5月29日电(新华社记者)从三聚氰胺到瘦肉精，从染色馒头到毒豆芽，在食品中添加非食用物质和滥用食品添加剂已成为百姓餐桌上突出的"不安全因素"。近期以来，从北京到广东，从浙江到宁夏，一场打击食品非法添加的"风暴"席卷全国。
+    </p>
+    <p>4月21日，国务院部署严厉打击食品非法添加和滥用食品添加剂专项行动后，广东省高度重视，随即召开了全省电视电话会议。省委领导强调，食品安全是"高压线"，决不能"下不为例"；抓好食品安全要突出一个"严"字，做到<b>严防</b>、<b>严查</b>、<b>严处</b>。
+    </p>
+    <p><b>宁夏重点开展了四轮问题乳粉彻查清缴工作</b>，对全区养殖源头、鲜奶收购和乳制品生产、经营、餐饮等环节的2.7万家单位进行了全面清查，共查处问题乳粉案件4起、涉案企业3家，吊销2家乳粉生产企业生产许可证。</p>
+    <p>做好风险监测工作是许多地方加强食品安全的重点工作之一。在北京，<span style="color: #f00;">全市设立了3000个风险监测点</span>，建立了包括3000余种食品添加剂和非法添加物的数据库，对110家国内外食品相关组织、媒体发布的线索进行监测，及时进行风险评估，加强抽检控制。
+    </p>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        var text = document.getElementsByClassName('wrapper')[0].children;
+        for (var i = 0; i < text.length; i++) {
+            text[i].onclick = function (t) {
+                t = this;
+                alert(t.innerHTML);
+            }
+        }
+    }
+</script>
+</html>

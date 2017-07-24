@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入法</title>
+    <style>
+        .wrapper {
+            width: 76px;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        ul {
+            display: none;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 76px;
+            border: 1px solid #9a99ff;
+            position: absolute;
+            top: 30px;
+            left: 0;
+        }
+
+        ul > li {
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+            padding: 5px 0;
+            color: #9a99ff;
+        }
+
+        #close {
+            border-top: 1px solid #9a99ff;
+        }
+
+        ul > li:hover {
+            background-color: #d9e1f6;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <button id="btn">切换输入法</button>
+
+    <ul>
+        <li>拼音</li>
+        <li>手写</li>
+        <li id="close">关闭</li>
+    </ul>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        var btnEl = document.getElementById('btn'),
+            closeEl = document.getElementById('close'),
+            ulEl = document.getElementsByTagName('ul')[0];
+
+        btnEl.onclick = function () {
+            ulEl.style.display = ulEl.style.display === 'block' ? 'none' : 'block';
+        };
+
+        closeEl.onclick = function () {
+            ulEl.style.display = 'none';
+        };
+    }
+</script>
+</html>

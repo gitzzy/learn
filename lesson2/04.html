@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹出层效果</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .wrapper{
+            text-align: center;
+        }
+        #bglay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 0.5;
+            filter: alpha(opacity = 50);
+            display: none;
+        }
+        #dialogContent{
+            width: 400px;
+            height: 200px;
+            border: 4px solid #f90;
+            margin: -104px 0 0 -204px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: #fff;
+            display: none;
+        }
+        #dialogContent h2{
+            margin: 0;
+            width: 100%;
+            height: 30px;
+            background-color: #fc0;
+            border-bottom: 4px solid #f90;
+        }
+        #close{
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 20px;
+            height: 20px;
+            line-height: 19px;
+            background-color: #fff;
+            color: #fc0;
+            border: 1px solid #f90;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <button id="dialog">弹出层</button>
+        <div id="bglay"></div>
+        <div id="dialogContent">
+            <h2></h2>
+            <span id="close">x</span>
+
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        var dialog = document.getElementById('dialog'),
+            bglay = document.getElementById('bglay'),
+            dialogContent = document.getElementById('dialogContent'),
+            close = document.getElementById('close');
+        dialog.onclick = function () {
+            bglay.style.display = 'block';
+            dialogContent.style.display = 'block';
+        };
+        close.onclick = function () {
+            bglay.style.display = 'none';
+            dialogContent.style.display = 'none';
+        };
+    }
+</script>
+</html>

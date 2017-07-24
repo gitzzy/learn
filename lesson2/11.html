@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框（checkbox）全选/全不选/返选</title>
+    <style>
+        body {
+            font-size: 12px;
+        }
+
+        #list {
+            margin: 0 auto;
+            padding: 10px 5px;
+            width: 120px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+
+        #first {
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        #text {
+            font-weight: bold;
+        }
+
+        #fanxuan {
+            color: #09f;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div id="list">
+        <p id="first">
+            <label><input type="checkbox" id="all"> <span id="text"> 全选</span></label>
+            <span id="fanxuan">反选</span>
+        </p>
+        <p>
+            <label><input type="checkbox"> 选项一</label>
+        </p>
+        <p>
+            <label><input type="checkbox"> 选项二</label>
+        </p>
+        <p>
+            <label><input type="checkbox"> 选项三</label>
+        </p>
+        <p>
+            <label><input type="checkbox"> 选项四</label>
+        </p>
+        <p>
+            <label><input type="checkbox"> 选项五</label>
+        </p>
+        <p>
+            <label><input type="checkbox"> 选项六</label>
+        </p>
+        <p>
+            <label><input type="checkbox"> 选项七</label>
+        </p>
+        <p>
+            <label><input type="checkbox"> 选项八</label>
+        </p>
+        <p>
+            <label><input type="checkbox"> 选项九</label>
+        </p>
+    </div>
+    <center>1、切换全选/全不选文字；2、根据选中个数更新全选框状态；</center>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        var all = document.getElementById('all');
+        var inputs = document.getElementsByTagName('input');
+        var text = document.getElementById('text');
+        var fanxuan = document.getElementById('fanxuan');
+
+        function isChecked() {
+            for (var i = 1, n = 0; i < inputs.length; i++) {
+                inputs[i].checked && n++
+            }
+            all.checked = n == inputs.length - 1;
+            text.innerHTML = all.checked ? '全不选' : '全选';
+        }
+
+        all.onclick = function () {
+            for (var i = 1; i < inputs.length; i++) {
+                inputs[i].checked = this.checked;
+            }
+            isChecked();
+        };
+
+        fanxuan.onclick = function () {
+            for (var i = 1; i < inputs.length; i++) {
+                inputs[i].checked = !inputs.checked;
+            }
+            isChecked();
+        };
+        //根据复选个数更新全选框状态
+        for (var i = 1; i < inputs.length; i++) {
+            inputs[i].onclick = function () {
+                isChecked()
+            }
+        }
+    }
+</script>
+</html>
