@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入两个数字，比较大小</title>
+    <style>
+        .wrap {
+            text-align: center;
+            color: #222;
+        }
+
+        .wrap input {
+            width: 100px;
+        }
+
+        #max {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <input type="text"> vs <input type="text">
+    <input type="button" id="maxBtn" value="较大的数字是>>">
+    <span id="max">?</span>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        var inputs = document.getElementsByTagName('input'),
+            max = document.getElementById('max'),
+            maxBtn = document.getElementById('maxBtn');
+
+        for (var i = 0; i < inputs.length - 1; i++) {
+            inputs[i].onkeyup = function () {
+                this.value = this.value.replace(/[^\d]/, '');
+            }
+        }
+
+        maxBtn.onclick = function () {
+            inputs[0].value === '' || inputs[1].value === '' ?
+                alert('请输入数字！') :
+                inputs[0].value - inputs[1].value > 0 ?
+                    max.innerHTML = parseInt(inputs[0].value) :
+                    max.innerHTML = parseInt(inputs[1].value)
+        }
+    }
+</script>
+</html>

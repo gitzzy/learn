@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面加载后自动累加1</title>
+    <style>
+        p {
+            text-align: center;
+            font-size: 50px;
+            font-weight: 200;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <p id="plus">0</p>
+</body>
+<script>
+    window.onload = function () {
+        var plus = document.getElementById('plus');
+        function plusOne () {
+            plus.innerHTML = parseInt(plus.innerHTML) + 1;
+        }
+        setInterval(plusOne, 1000);
+    }
+</script>
+</html>

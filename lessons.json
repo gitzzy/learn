@@ -77,6 +77,56 @@
           "href": "lesson2/11.html"
         }
       ]
+    },
+    {
+      "title": "第三课",
+      "list": [
+        {
+          "name": "用typeof查看数据类型",
+          "href": "lesson3/01.html"
+        },
+        {
+          "name": "用parseInt解析数字，并求和",
+          "href": "lesson3/02.html"
+        },
+        {
+          "name": "累加按钮，自加1",
+          "href": "lesson3/03.html"
+        },
+        {
+          "name": "输入两个数字，比较大小",
+          "href": "lesson3/04.html"
+        },
+        {
+          "name": "页面加载后自动累加1",
+          "href": "lesson3/05.html"
+        },
+        {
+          "name": "判断数字是否为两位数",
+          "href": "lesson3/06.html"
+        },
+        {
+          "name": "网页计算器",
+          "href": "lesson3/07.html"
+        },
+        {
+          "name": "简易时钟",
+          "href": "lesson3/08.html"
+        },
+        {
+          "name": "倒计时时钟（100s）",
+          "href": "lesson3/09.html"
+        }
+      ]
+    },
+    {
+      "title": "第四课",
+      "list": [
+        {
+          "name": "setTimeout应用",
+          "href": "lesson4/01.html"
+        }
+      ]
     }
   ]
 }

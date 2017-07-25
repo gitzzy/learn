@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>累加按钮，自加1</title>
+</head>
+<body>
+    <div class="wrap" style="text-align: center">
+        <input type="button" id="plus" value="0">
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        var plus = document.getElementById('plus');
+
+        plus.onclick = function () {
+            this.value++;
+        }
+    }
+</script>
+</html>

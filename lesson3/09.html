@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <style>
+        .wrap {
+            margin: 0 auto;
+            padding-top: 20px;
+            padding-bottom: 5px;
+            background-color: #000;
+            width: 300px;
+            text-align: center;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .wrap span {
+            display: inline-block;
+            width: 30px;
+            height: 20px;
+            background-color: #fff;
+            border: 3px solid #eee;
+            color: #000;
+            text-align: center;
+        }
+
+        #btn {
+            width: 200px;
+            height: 35px;
+            background-image: url("http://fgm.cc/learn/lesson3/img/btn-1.png");
+            background-size: 200px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <span id="minutes"></span> :
+    <span id="second"></span>
+    <div id="btn" data-index="0"></div>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        var minutes = document.getElementById('minutes'),
+            second = document.getElementById('second'),
+            btn = document.getElementById('btn');
+        var timer = '';
+        var i = 99;
+        minutes.innerHTML = '100';
+        second.innerHTML = '00';
+        btn.onclick = function () {
+            var index = this.getAttribute('data-index');
+            if (index === '0') {
+                this.style.backgroundPositionY = '-35px';
+
+                timer = setInterval(function () {
+                    if (i >= 0) {
+                        second.innerHTML = i = String(i).length === 2 ? i : '0' + i;
+                        minutes.innerHTML = '00';
+                        i--;
+                    }
+                }, 1000);
+
+
+                this.setAttribute('data-index', '1');
+            } else {
+                this.style.backgroundPositionY = '0';
+                clearInterval(timer);
+                this.setAttribute('data-index', '0');
+                i = parseInt(second.innerHTML) - 1;
+            }
+
+        }
+    }
+</script>
+</html>
