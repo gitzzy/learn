@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css函数一设置/读取对象的属性</title>
+    <style>
+        #wrap {
+            margin: 0 auto;
+            padding: 10px;
+            width: 300px;
+            height: 200px;
+            background-color: #fef4eb;
+            border: 1px solid #f60;
+            text-align: center;
+        }
+
+        #wrap input {
+            background-color: #f60;
+            color: #fff;
+            font-weight: 400;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <input type="button" value="获取样式">
+    <input type="button" value="设置样式">
+    <input type="button" value="默认样式">
+</div>
+</body>
+<script>
+    function css(obj, attr, val) {
+        switch (arguments.length) {
+            case 2:
+                if (typeof arguments[1] === 'object') {
+                    // 两个参数，第二个为对象，批量设置
+                    for (var i in attr) {
+                        obj.style[i] = attr[i];
+                    }
+                } else {
+                    // 两个参数，第二个为字符串，读取属性
+                    return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj, null)[attr];
+                }
+                break;
+            case 3:
+                // 三个参数，单个设置样式
+                obj.style[attr] = val;
+                break;
+            default:
+                alert('参数错误！');
+        }
+    }
+
+    window.onload = function () {
+        var wrap = document.getElementById('wrap'),
+            btn = wrap.getElementsByTagName('input');
+
+        btn[0].onclick = function () {
+            alert('width:' + css(wrap, 'width') + '\nheight:' + css(wrap, 'height') + '\nbackgroundColor:' + css(wrap, 'backgroundColor'));
+        };
+        btn[1].onclick = function () {
+            css(wrap, {width: '200px', height: '100px', borderColor: '#0084ff', backgroundColor: '#eff8ff'});
+            for (var i = 0; i < btn.length; i++) {
+                css(btn[i], 'backgroundColor', '#0084ff');
+            }
+        };
+        btn[2].onclick = function () {
+            css(wrap, {width: '300px', height: '200px', borderColor: '#f60', backgroundColor: '#fef4eb'});
+            for (var i = 0; i < btn.length; i++) {
+                css(btn[i], 'backgroundColor', '#f60');
+            }
+        };
+    }
+</script>
+</html>

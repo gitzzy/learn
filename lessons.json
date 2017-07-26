@@ -1,7 +1,7 @@
 {
   "lessons": [
     {
-      "title": "第一课",
+      "title": "第一课 ( 6 )",
       "list": [
         {
           "name": "控制div属性",
@@ -30,7 +30,7 @@
       ]
     },
     {
-      "title": "第二课",
+      "title": "第二课 ( 11 )",
       "list": [
         {
           "name": "输入法",
@@ -79,7 +79,7 @@
       ]
     },
     {
-      "title": "第三课",
+      "title": "第三课 ( 9 )",
       "list": [
         {
           "name": "用typeof查看数据类型",
@@ -125,7 +125,40 @@
         {
           "name": "setTimeout应用",
           "href": "lesson4/01.html"
+        },
+        {
+          "name": "自动播放——幻灯片效果",
+          "href": "lesson4/02.html"
+        },
+        {
+          "name": "自动改变播放方向——幻灯片效果",
+          "href": "lesson4/03.html"
+        },
+        {
+          "name": "agruments应用一求出函数参数的总合",
+          "href": "lesson4/04.html"
+        },
+        {
+          "name": "css函数一设置/读取对象的属性",
+          "href": "lesson4/05.html"
+        },
+        {
+          "name": "当前输入框高亮显示",
+          "href": "lesson4/06.html"
+        },
+        {
+          "name": "数组练习：各种数组方法的使用",
+          "href": "lesson4/07.html"
+        },
+        {
+          "name": "事件练习：封装兼容性添加、删除事件的函数",
+          "href": "lesson4/08.html"
+        },
+        {
+          "name": "星级评分系统",
+          "href": "lesson4/09.html"
         }
+
       ]
     }
   ]

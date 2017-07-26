@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>当前输入框高亮显示</title>
+    <style>
+        form, h2, p, label, input {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            margin: 0 auto;
+            width: 400px;
+            border: 2px solid #f60;
+            background-color: #fef4eb;
+        }
+
+        form > h2 {
+            padding-left: 20px;
+            height: 38px;
+            line-height: 38px;
+            background-color: #FFC53D;
+            border-bottom: 2px solid #f60;
+            font-size: 16px;
+            color: #fe791e;
+        }
+
+        form > p {
+            margin: 10px 0;
+        }
+
+        label {
+            display: inline-block;
+            width: 120px;
+            text-align: right;
+        }
+
+        .text, .focus {
+            width: 200px;
+            height: 28px;
+            border: 1px solid #ccc;
+            background-color: #fffdec;
+            border-radius: 2px;
+        }
+
+        .btn {
+            padding: 8px 30px;
+            background-color: #f60;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .focus {
+            background-color: #ffe7e7;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <h2>用户登录</h2>
+    <p>
+        <label for="username">username:</label>
+        <input class="text" id="username" type="text">
+    </p>
+    <p>
+        <label for="password">password:</label>
+        <input class="text" id="password" type="password">
+    </p>
+    <p>
+        <label></label>
+        <input class="btn" type="button" value="submit">
+    </p>
+</form>
+</body>
+<script>
+    window.onload = function () {
+        var inputs = document.getElementsByClassName('text');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].onfocus = function () {
+                this.className = 'focus';
+            };
+            inputs[i].onblur = function () {
+                this.className = 'text';
+            };
+        }
+    }
+</script>
+</html>
