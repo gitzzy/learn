@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Div闪烁</title>
+    <style>
+        #box{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: #fff;
+            background: red;
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+            text-align: center;
+            font: 12px/200px Arial;
+            margin:-100px 0 0 -100px;
+            letter-spacing: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">点击我就闪</div>
+</body>
+<script>
+    window.onload = function () {
+        var box = document.getElementById('box'),
+            timer = null;
+        box.onclick = function () {
+            var i = 0;
+            clearInterval(timer);
+            timer = setInterval(function () {
+                box.style.display = i++ % 2 ? 'none' : 'block';
+                i > 6 && (clearInterval(timer));
+            }, 80);
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义右键菜单</title>
+    <style>
+        body, ul, li, p{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font: 12px/24px arial;
+        }
+        p {
+            text-align: center;
+        }
+        #menu {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+            width: 100px;
+            border-radius: 3px;
+            list-style: none;
+            border: 1px solid #8f8f8f;
+            padding: 2px;
+            background: #fff;
+        }
+        #menu li {
+            position: relative;
+            height: 24px;
+            padding-left: 24px;
+            background: #eaead7;
+            vertical-align: top;
+        }
+        #menu li a {
+            display: block;
+            color: #333;
+            background: #fff;
+            padding-left: 5px;
+            text-decoration: none;
+        }
+        #menu li.active {
+            background: #999;
+        }
+        #menu li.active a{
+            color: #fff;
+            background: #8f8f8f;
+        }
+        #menu li em {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 24px;
+            height: 24px;
+            background: url('http://fgm.cc/learn/lesson5/img/ico.png') no-repeat;
+        }
+        #menu li em.cur{
+            background-position: 0 0;
+        }
+        #menu li em.copy{
+            background-position: 0 -24px;
+        }
+        #menu li em.paste{
+            background-position: 0 -48px;
+        }
+    </style>
+</head>
+<body>
+    <p>自定义右键菜单，请在页面点击右键查看效果。</p>
+    <ul id="menu">
+        <li><em class="cut"></em><a href="javascript:;">剪切</a></li>
+        <li><em class="copy"></em><a href="javascript:;">复制</a></li>
+        <li><em class="paste"></em><a href="javascript:;">粘贴</a></li>
+    </ul>
+</body>
+<script>
+    window.onload = function () {
+        var menu = document.getElementById('menu'),
+            li = menu.getElementsByTagName('li');
+
+        menu.style.display = 'none';
+
+        for (var i = 0; i < li.length; i++) {
+            li[i].onmouseover = function () {
+                this.className = 'active';
+            };
+            li[i].onmouseout = function () {
+                this.className = '';
+            }
+        }
+
+        document.oncontextmenu = function (event) {
+            var e = event || window.event;
+            var style = menu.style;
+            style.display = 'block';
+            style.top = e.clientY + 'px';
+            style.left = e.clientX + 'px';
+            return false;
+        };
+        document.onclick = function () {
+            menu.style.display = 'none';
+        }
+    }
+</script>
+</html>

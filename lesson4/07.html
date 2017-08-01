@@ -18,11 +18,14 @@
             line-height: 1.5;
             background-color: #f0f0f0;
             border: 1px dotted #333;
+            overflow: hidden;
+            word-wrap: break-word;
         }
     </style>
 </head>
 <body>
-<p class="show">January(1),February(2),March(3),April(4),May(5),June(6),July(7),Aguest(8),September(9),October(10),November(11),December(12)</p>
+<p class="show">
+    January(1),February(2),March(3),April(4),May(5),June(6),July(7),Aguest(8),September(9),October(10),November(11),December(12)</p>
 <p class="btn"><input type="button" value="删除January(1)"><input type="button" value="删除December(12)"></p>
 <p class="show">0,1,2,3,4,5,6,7,8,9</p>
 <p class="btn"><input type="button" value="复制"><input type="button" value="还原"></p>
@@ -42,7 +45,7 @@
             show = document.getElementsByClassName('show'),
             S1 = true,
             S2 = true;
-        
+
         // 第一个元素
         btn[0].onclick = function () {
             arr = getArr(show[0].innerHTML);
@@ -60,7 +63,48 @@
             show[0].innerHTML = arr.join();
         };
 
-        console.log(getArr('January(1),February(2),March(3),April(4),May(5),June(6),July(7),Aguest(8),September(9),October(10),November(11)'));
+        // 复制
+        btn[2].onclick = function () {
+            arr = getArr(show[1].innerHTML);
+            var arr2 = arr;
+            show[1].innerHTML = arr.concat(arr2).toString().replace(/\s/g, '');
+        };
+        // 还原
+        btn[3].onclick = function () {
+            arr = getArr(show[1].innerHTML);
+            arr.length = 10;
+            show[1].innerHTML = arr.join();
+        };
+
+        // 还原
+        btn[4].onclick = function () {
+            arr = ["red", "green", "blue", "white", "yellow", "black", "brown"];
+            show[2].innerHTML = arr.join();
+        };
+        // 删除前三项
+        btn[5].onclick = function () {
+            arr = getArr(show[2].innerHTML);
+            arr.splice(0, 3);
+            show[2].innerHTML = arr.join();
+        };
+        // 删除第二至第三项
+        btn[6].onclick = function () {
+            arr = getArr(show[2].innerHTML);
+            arr.splice(1, 2);
+            show[2].innerHTML = arr.join();
+        };
+        // 第二项后插入
+        btn[7].onclick = function () {
+            arr = getArr(show[2].innerHTML);
+            arr.splice(2, 0, 'orange', 'purple');
+            show[2].innerHTML = arr.join();
+        };
+        // 替换第二和第三项
+        btn[8].onclick = function () {
+            arr = getArr(show[2].innerHTML);
+            arr.splice(1, 2, '#009900', '#0000ff');
+            show[2].innerHTML = arr.join();
+        };
 
         function getArr(str) {
             arr = [];
