@@ -196,6 +196,23 @@
           "href": "lesson5/08.html"
         }
       ]
+    },
+    {
+      "title": "第六课 ( 3 )",
+      "list": [
+        {
+          "name": "完美拖拽",
+          "href": "lesson6/01.html"
+        },
+        {
+          "name": "仿腾讯微博效果",
+          "href": "lesson6/02.html"
+        },
+        {
+          "name": "自定义多级右键菜单",
+          "href": "lesson6/03.html"
+        }
+      ]
     }
   ]
 }

@@ -3,8 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <title>网页计算器</title>
+    <style>
+        body, ul, li, div, p, input {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            color: #fff;
+            outline: none;
+            text-decoration: none;
+        }
+
+        body {
+            font: 700 24px/1.5 Arial;
+        }
+
+        #box {
+            position: relative;
+            width: 300px;
+            background-color: #000;
+            margin: 10px auto;
+        }
+
+        #box p {
+            color: #fff;
+            text-align: right;
+            font: 12px/20px Arial;
+            padding: 0 5px;
+        }
+
+        #box .f-text {
+            border: 0;
+            width: 290px;
+            height: 84px;
+            text-align: right;
+            font: 700 50px/84px Arial;
+            background: url("http://fgm.cc/learn/lesson3/img/inputBg.jpg") repeat-x;
+            padding: 0 5px;
+        }
+
+        #box ul {
+            position: relative;
+            overflow: hidden;
+            zoom: 1;
+            background: url("http://fgm.cc/learn/lesson3/img/bg.jpg");
+            padding: 0 0 17px 8px;
+        }
+
+        #box ul li {
+            float: left;
+            width: 63px;
+            height: 41px;
+            margin: 17px 10px 0 0;
+        }
+
+        #box ul li a {
+            display: block;
+            width: 63px;
+            height: 41px;
+            line-height: 41px;
+            text-align: center;
+            background: url("http://fgm.cc/learn/lesson3/img/btn.png") no-repeat;
+        }
+
+        #box ul li a:hover {
+            background-position: -63px 0;
+        }
+
+        #box ul li.btn-1 a {
+            background-position: 0 -41px;
+        }
+
+        #box ul li.btn-1 a:hover {
+            background-position: -63px -41px;
+        }
+
+        #box ul li.btn-2 {
+            position: absolute;
+            top: 174px;
+            right: 0;
+            height: 99px;
+        }
+
+        #box ul li.btn-2 a {
+            height: 99px;
+            line-height: 99px;
+            background-position: 0 -164px;
+        }
+
+        #box ul li.btn-2 a:hover {
+            background-position: -63px -164px;
+        }
+
+        #box ul li.btn-3 {
+            width: 136px;
+        }
+
+        #box ul li.btn-3 a {
+            width: 136px;
+            background-position: 0 -82px;
+        }
+
+        #box ul li.btn-3 a:hover {
+            background-position: 0 -123px;
+        }
+
+        #formula {
+            position: absolute;
+            top: 20px;
+            background: none;
+            border: 0;
+            font: 700 12px/1.5 Arial;
+            width: 280px;
+            padding: 3px 15px 0 5px;
+            text-align: right;
+        }
+
+    </style>
 </head>
 <body>
-
+<div id="box">
+    <p>计算器</p>
+    <input type="text" class="f-text" maxlength="9" value="0" readonly>
+    <ul>
+        <li class="btn-1"><a href="javascript:void(0);">c</a></li>
+        <li class="btn-1"><a href="javascript:void(0);">%</a></li>
+        <li class="btn-1"><a href="javascript:void(0);">/</a></li>
+        <li class="btn-1"><a href="javascript:void(0);">x</a></li>
+        <li><a href="javascript:void(0);">7</a></li>
+        <li><a href="javascript:void(0);">8</a></li>
+        <li><a href="javascript:void(0);">9</a></li>
+        <li class="btn-1"><a href="javascript:void(0);">-</a></li>
+        <li><a href="javascript:void(0);">4</a></li>
+        <li><a href="javascript:void(0);">5</a></li>
+        <li><a href="javascript:void(0);">6</a></li>
+        <li class="btn-1"><a href="javascript:void(0);">+</a></li>
+        <li><a href="javascript:void(0);">1</a></li>
+        <li><a href="javascript:void(0);">2</a></li>
+        <li><a href="javascript:void(0);">3</a></li>
+        <li class="btn-2"><a href="javascript:void(0);">=</a></li>
+        <li class="btn-3"><a href="javascript:void(0);">0</a></li>
+        <li><a href="javascript:void(0);">.</a></li>
+    </ul>
+    <input id="formula" type="text" readonly="readonly" value=""/>
+</div>
 </body>
+<script>
+    window.onload = function () {
+        var box = document.getElementById('box'),
+            lA = box.getElementsByTagName('a'),
+            input = box.getElementsByTagName('input')[0],
+            formula = document.getElementById('formula');
+        var s = false;
+
+        for (var i = 0; i < lA.length; i++) {
+            lA[i].onfocus = function () {
+                this.blur();
+            };
+            lA[i].onclick = function () {
+                switch (this.innerHTML) {
+                    case 'c':
+                        input.value = 0;
+                        formula.value = '';
+                        break;
+                    case '%':
+                        count('%');
+                        break;
+                    case '/':
+                        count('/');
+                        break;
+                    case 'x':
+                        count('*');
+                        break;
+                    case '-':
+                        count('-');
+                        break;
+                    case '+':
+                        count('+');
+                        break;
+                    case '=':
+                        s || (formula.value += input.value);
+                        input.value = eval(formula.value.replace(/\%\/\*\-\+/,''));
+                        input.value = input.value.substr(0, 10).replace('NaN', 0);
+                        s = true;
+                        break;
+                    case '.':
+                        if (input.value.search(/[\.\%\/\*\-\+]/) != -1)
+                        break;
+                    default:
+                        s && (input.value = 0, formula.value = '', s = false);
+                        input.value.length < 10 && (input.value = (input.value + this.innerHTML).replace(/^[0\%\/\*\-\+](\d)/,"$1"))
+                }
+            }
+        }
+
+        function count(a) {
+            if (s) {
+                formula.value = input.value + a;
+                input.value = a;
+                s = false;
+            } else {
+                /[\%\/\*\-\+]$/.test(input.value) || (formula.value += input.value);
+                input.value = a;
+                /[\%\/\*\-\+]$/.test(formula.value) || (formula.value += input.value);
+                formula.value = formula.value.slice(-1) != a ? formula.value.replace(/.$/, a) : formula.value;
+            }
+        }
+    }
+</script>
 </html>
